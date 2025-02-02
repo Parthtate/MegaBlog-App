@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import authService from './appwrite/auth'
-import { Header, Footer } from './components';
+import { Header, Footer } from './components/index';
 import { login, logout } from './features/authSlice'
 import { Outlet } from 'react-router-dom'
 import './App.css'
 
 function App() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch()
 
   useEffect(() => {( 
@@ -28,6 +28,9 @@ function App() {
   }, []);   
 
   // Conditional rendering
+  
+ 
+  
   return !loading ? (
     <div className="min-h-screen flex flex-wrap content-between ">
       <div className='w-full'> 

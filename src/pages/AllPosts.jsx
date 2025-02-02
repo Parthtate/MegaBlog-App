@@ -9,14 +9,10 @@ function AllPosts() {
     useEffect(() => {
         service.getPosts([])
             .then((posts) => {
-                console.log("Fetched Posts:", posts); // Debugging
-                if (posts && posts.documents) {
+                if (posts) {
                     setPosts(posts.documents);
                 }
-            })
-            .catch((error) => {
-                console.error("Error fetching posts:", error);
-            });
+            })   
     }, []);
 
     return (
@@ -31,9 +27,7 @@ function AllPosts() {
                         posts.map((postItem) => (
                             <div key={postItem.$id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
                                 <PostCardComponent
-                                    title={postItem.title}
-                                    featuredImage={postItem.featuredImage} // Should be a valid Appwrite File ID
-                                    $id={postItem.$id}
+                                    {...postItem}
                                 />
                             </div>
                         ))
@@ -45,3 +39,4 @@ function AllPosts() {
 }
 
 export default AllPosts;
+// posts

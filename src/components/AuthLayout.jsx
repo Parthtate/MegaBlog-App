@@ -29,4 +29,4 @@ function AuthLayout({children, authentication = true}) {
 
 export default AuthLayout
 
-// TODO
+

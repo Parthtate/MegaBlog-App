@@ -35,4 +35,4 @@ function EditPost() {
 
 export default EditPost
 
-// TODO
+// posts

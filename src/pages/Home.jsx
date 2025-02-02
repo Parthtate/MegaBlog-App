@@ -32,8 +32,8 @@ function Home() {
                                 <p className='mt-4 text-lg text-gray-600'>
                                     Be the first to share your thoughts. Click below to add a post.
                                 </p>
-                                <button className='mt-6 px-6 py-3 bg-green-500 text-white rounded-md text-lg font-medium hover:bg-green-600 transition-all'
-                                onClick={() => navigate("/add-post")}
+                                <button className='mt-6 px-6 py-3 bg-blue-500 text-white rounded-md text-lg font-medium hover:bg-blue-600 transition-all'
+                                onClick={() => navigate("/add-post")}    
                                 >
                                     Add a Post
                                 </button>
@@ -41,7 +41,7 @@ function Home() {
                         ) : (
                             <div className='p-16 w-full max-w-lg bg-white shadow-md rounded-lg'>
                                 <h2 className='text-4xl font-semibold text-gray-900'>
-                                    Welcome to Our Blog
+                                    Welcome to Blog Post
                                 </h2>
                                 <p className='mt-4 text-lg text-gray-600'>
                                     Sign in to explore amazing posts and share your thoughts with the community.
@@ -76,4 +76,4 @@ function Home() {
 }
 
 export default Home
-// TODO
+// posts

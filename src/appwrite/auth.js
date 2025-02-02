@@ -11,24 +11,19 @@ export class AuthService {
 
 
     }
-    async createAccount({email,password,name})
-
-    {
+    async createAccount({email,password,name}){
         try {
-            const userAccount=await this.account.create(ID.unique(),email,password,name);
+            const userAccount = await this.account.create(ID.unique(),email,password,name);
             if (userAccount) {
                 return this.login({email,password})
-                
             } else {
                 return userAccount;
-                
             }
             
         } catch (error) {
             console.log("createaccount error appwrite",error);
             throw error;
         }
-
     }
     async login({email,password}){
         try {
@@ -40,16 +35,11 @@ export class AuthService {
 
     }
     async getCurrentUser(){
-        
         try {
-
-          return  await this.account.get();
-
-            
+          return await this.account.get();
         } catch (error) {
             if (error.code === 401) {
                 console.log("No active session. User is not logged in.");
-                
             } else {
                 console.log("getCurrentUser error", error);
             }
@@ -58,16 +48,12 @@ export class AuthService {
     }
 
     async logout(){
-   
         try {
            await this.account.deleteSessions();
-            
         } catch (error) {
             console.log("logout service",error)
-            
         }
     }
-
 }
- const authService= new AuthService()
+const authService= new AuthService()
 export default authService
