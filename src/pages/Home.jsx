@@ -47,9 +47,9 @@ function Home() {
                                     Sign in to explore amazing posts and share your thoughts with the community.
                                 </p>
                                 <button 
-                                    onClick={() => navigate("/login")} 
+                                    onClick={() => navigate("/signup")} 
                                     className='mt-6 px-6 py-3 bg-blue-500 text-white rounded-md text-lg font-medium hover:bg-blue-600 transition-all'>
-                                    Login Now
+                                    Sign in
                                 </button>
                             </div>
                         )}
