@@ -40,7 +40,7 @@ function Signup() {
                     Already have an account?&nbsp;
                     <Link
                         to="/login"
-                        className="font-medium text-black-500 transition duration-300 hover:text-blue-500 hover:underline"
+                        className="font-medium text-black-500 transition duration-300  hover:text-blue-600 hover:underline"
                     >
                         Sign In
                     </Link>
@@ -76,7 +76,7 @@ function Signup() {
                                 required: true,
                             })}
                         />
-                        <Button type="submit" className="w-full py-3 text-lg rounded-lg bg-blue-500 hover:bg-blue-600 transition-all duration-300">
+                        <Button type="submit" className="w-full py-3 text-lg rounded-lg  hover:bg-blue-700 bg-blue-500 transition-all duration-200">
                             Create Account
                         </Button>
                     </div>

@@ -179,7 +179,7 @@ return (
             })}
           />
         </div>
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full py-3 text-lg rounded-lg  hover:bg-blue-700 bg-blue-500 transition-all duration-200  ">
           Log In
         </Button>
       </div>

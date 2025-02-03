@@ -38,9 +38,9 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-gray-500 py-3 shadow-lg rounded-2xl">
+    <header className="bg-gray-500 p-0.5 shadow-lg rounded-2xl">
       <Container>
-        <nav className="flex items-center justify-center py-4">
+        <nav className="flex items-center justify-center py-3">
           <div className="mr-4 hover:bg-black">
             <Link to="/">
               <Logo className="w-16 md:w-20" />
