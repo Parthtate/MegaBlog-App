@@ -63,12 +63,7 @@ export default function PostForm({ post }) {
         } catch (error) {
             console.log("Error submitting post:", error);
         }
-    };
-
-    
-
-  
-    
+    };  
     
     const slugTransform = useCallback((value) => {
         if (value && typeof value === "string") {
@@ -105,6 +100,7 @@ export default function PostForm({ post }) {
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
             <div className="w-1/3 px-2">
+            
                 <Input
                     label="Featured Image :"
                     type="file"
@@ -126,4 +122,4 @@ export default function PostForm({ post }) {
     );
 }
 
-// slug
+// all-posts

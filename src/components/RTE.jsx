@@ -1,9 +1,8 @@
 import React from 'react'
 import {Editor} from '@tinymce/tinymce-react'
 import { Controller } from 'react-hook-form'
-import conf from "../conf/conf"
 
-function RTE({name, label, control, defaultValue = ""}) {
+export default function RTE({name, label, control, defaultValue = ""}) {
   return (
     <div className="w-full">
       {label && <label className="inline-block mb-1 pl-1">{label}</label>}
@@ -39,7 +38,6 @@ function RTE({name, label, control, defaultValue = ""}) {
                 "code",
                 "help",
                 "wordcount",
-                "anchor",
               ],
               toolbar:
                 "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help",
@@ -53,5 +51,3 @@ function RTE({name, label, control, defaultValue = ""}) {
     </div>
   );
 }
-
-export default RTE

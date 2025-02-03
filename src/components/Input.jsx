@@ -1,6 +1,6 @@
 import React, {useId} from 'react'   
 
-export const Input = React.forwardRef( function Input({
+const Input = React.forwardRef( function Input({
     label,
     type = 'text',
     className = "",
@@ -13,7 +13,7 @@ export const Input = React.forwardRef( function Input({
             {
                 label && <label
                 className='inline-block mb-1 pl-1'
-                htmlFor={id}>
+                htmlFor="id">
                     {label}
                 </label>
             }
@@ -29,4 +29,3 @@ export const Input = React.forwardRef( function Input({
 })
 
 export default Input
-// placeHolder
