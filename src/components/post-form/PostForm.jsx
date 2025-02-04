@@ -39,7 +39,7 @@ export default function PostForm({ post }) {
             const payload = {
                 
                 title: data.title,
-                content: data.content,
+                content: data.content.substring(0, 255),
                 featuredImage: file ? file.$id : undefined, 
                 status: data.status,
                 userId: userData.$id,
