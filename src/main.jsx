@@ -10,7 +10,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import Home from './pages/Home.jsx'
 import SignupPage from './pages/SignupPage.jsx'
-import AllPosts from './pages/AddPost.jsx'
+import AllPosts from './pages/AllPosts.jsx'
 import AddPost from './pages/AddPost.jsx'
 import EditPost from './pages/EditPost.jsx'
 import Post from './pages/Post'
