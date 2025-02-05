@@ -67,27 +67,48 @@ export class Service {
     }
     
 
+    // async updatePost({ title, slug, content, featuredImage, status }) {
+    //     try {
+    //         if (featuredImage && typeof featuredImage !== "string") {
+    //             const fileResponse = await this.uploadFile(featuredImage);
+    //             featuredImage = fileResponse.$id;
+    //         }
+    //         return await this.databases.updateDocument(
+    //             conf.appwriteDatabaseId,
+    //             conf.appwriteCollectionId,
+    //             slug,
+    //             {
+    //                 title,
+    //                 content,
+    //                 featuredImage,
+    //                 status,
+    //             }
+    //         );
+    //     } catch (error) {
+    //         console.error("Error in updatePost:", error);
+    //     }
+    // }
     async updatePost({ title, slug, content, featuredImage, status }) {
         try {
             if (featuredImage && typeof featuredImage !== "string") {
                 const fileResponse = await this.uploadFile(featuredImage);
                 featuredImage = fileResponse.$id;
             }
+    
+            // Ensure content does not exceed 255 characters
+            content = typeof content === "string" ? content.substring(0, 255) : "";
+    
             return await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 slug,
-                {
-                    title,
-                    content,
-                    featuredImage,
-                    status,
-                }
+                { title, content, featuredImage, status }
             );
         } catch (error) {
             console.error("Error in updatePost:", error);
         }
     }
+    
 
     async deletePost(slug) {
         try {
