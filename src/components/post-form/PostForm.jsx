@@ -47,7 +47,7 @@ export default function PostForm({ post }) {
     
             
             if (!post) {
-                const dbPost = await service.createPost(slug, payload); // changes
+                const dbPost = await service.createPost(payload); // changes
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);
                 }
