@@ -46,8 +46,7 @@ export class Service {
                 featuredImage = fileResponse.$id;
             }
     
-            // ✅ Ensure content is a string and limit it to 255 characters
-            const validContent = String(content).substring(0, 255);
+            let validContent = String(content).substring(0, 255);
     
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
