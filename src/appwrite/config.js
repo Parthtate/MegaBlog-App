@@ -12,26 +12,25 @@ export class Service {
         this.databases = new Databases(this.client);
         this.bucket = new Storage(this.client);
     }
-
-    async createPost( {slug, title, content, featuredImage, status, userId }) {
+//changes
+    async createPost(slug, { title, content, featuredImage, status, userId }) {
         
         try {
             if (featuredImage && typeof featuredImage !== "string") {
                 
                 const fileResponse = await this.uploadFile(featuredImage);
-                featuredImage = fileResponse.$id || null;
+                featuredImage = fileResponse.$id;
             }
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                ID.unique(),
+                slug,
                 {
                     title,
                     content,
                     featuredImage,
                     status,
                     userId, 
-                    slug
                 }
             );
         } catch (error) {
@@ -39,9 +38,6 @@ export class Service {
             throw error;
         }
     }
-
-    
-    
 
     async updatePost({ title, slug, content, featuredImage, status }) {
         try {

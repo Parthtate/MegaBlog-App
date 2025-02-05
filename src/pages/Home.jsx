@@ -17,12 +17,12 @@ function Home() {
                 }
             })
         }
-    }, [])
+    }, [authStatus])
 
 
     if (!authStatus) {
         return (
-            <div className='w-full py-12 mt-6 text-center  min-h-[50vh] flex items-center justify-center'>
+            <div className='w-full py-12 mt-6 text-center  min-h-[50vh] flex items-center justify-center rounded-2xl'>
                 <Container>
                     <div className='flex flex-col items-center space-y-6'>
                         {authStatus ? (

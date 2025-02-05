@@ -14,7 +14,7 @@ function AllPosts() {
     }, []);
 
     return (
-        <div className="w-full min-h-screen bg-gradient-to-r from-gray-800 via-gray-900 to-black py-16">
+        <div className="w-full rounded-2xl min-h-screen bg-gradient-to-r from-gray-800 via-gray-900 to-black py-16">
             <Container>
                 <div className="flex flex-wrap justify-center gap-6">
                     {post.length === 0 ? (

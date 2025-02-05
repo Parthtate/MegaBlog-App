@@ -47,7 +47,7 @@ export default function PostForm({ post }) {
     
             
             if (!post) {
-                const dbPost = await service.createPost( payload);
+                const dbPost = await service.createPost(slug, payload); // changes
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);
                 }
@@ -100,11 +100,10 @@ export default function PostForm({ post }) {
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
             <div className="w-1/3 px-2">
-            
                 <Input
                     label="Featured Image :"
                     type="file"
-                    className="mb-4 flex flex-wrap"
+                    className="mb-4"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
                 />

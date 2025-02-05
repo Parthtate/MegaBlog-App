@@ -27,9 +27,7 @@ export default function EditPost() {
             return;
         }
 
-        service
-            .updatePost(updatedPostData)
-            .then((updatedPost) => {
+        service.updatePost(updatedPostData).then((updatedPost) => {
                 if (updatedPost) {
                     setIsPostEdited(true);
                     alert("Post updated successfully!");
@@ -37,8 +35,7 @@ export default function EditPost() {
                 } else {
                     alert("Error updating the post. Please try again.");
                 }
-            })
-            .catch(() => {
+            }).catch(() => {
                 alert("Failed to update the post.");
             });
     };

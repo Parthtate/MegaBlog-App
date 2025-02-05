@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import service from "../appwrite/config";
 import { Link } from "react-router-dom";
 
-function PostCard({ $id, title, featuredImage }) {
+function PostCard({ title, featuredImage, $id }) {
     const [imagePreview, setImagePreview] = useState(null);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ function PostCard({ $id, title, featuredImage }) {
             setImagePreview(null)
             
         }
-    }, [])
+    }, [featuredImage])
 
     return (
         <Link to={`/post/${$id}`}>
