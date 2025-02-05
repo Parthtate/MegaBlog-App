@@ -13,24 +13,52 @@ export class Service {
         this.bucket = new Storage(this.client);
     }
 //changes
-    async createPost(slug, { title, content, featuredImage, status, userId }) {
+    // async createPost(slug, { title, content, featuredImage, status, userId }) {
         
+    //     try {
+    //         if (featuredImage && typeof featuredImage !== "string") {
+                
+    //             const fileResponse = await this.uploadFile(featuredImage);
+    //             featuredImage = fileResponse.$id;
+    //         }
+    //         return await this.databases.createDocument(
+    //             conf.appwriteDatabaseId,
+    //             conf.appwriteCollectionId,
+    //             slug,
+    //             {
+    //                 title,
+    //                 content,
+    //                 featuredImage,
+    //                 status,
+    //                 userId, 
+    //             }
+    //         );
+    //     } catch (error) {
+    //         console.error("Error in createPost:", error);
+    //         throw error;
+    //     }
+    // }
+
+    async createPost(slug, { title, content, featuredImage, status, userId }) {
         try {
             if (featuredImage && typeof featuredImage !== "string") {
-                
                 const fileResponse = await this.uploadFile(featuredImage);
                 featuredImage = fileResponse.$id;
             }
+    
+            // ✅ Ensure content is a string and limit it to 255 characters
+            const validContent = String(content).substring(0, 255);
+    
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 slug,
                 {
                     title,
-                    content,
+                    content: validContent,  
                     featuredImage,
                     status,
-                    userId, 
+                    userId,
                 }
             );
         } catch (error) {
@@ -38,6 +66,7 @@ export class Service {
             throw error;
         }
     }
+    
 
     async updatePost({ title, slug, content, featuredImage, status }) {
         try {
