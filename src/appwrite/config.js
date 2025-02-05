@@ -39,7 +39,7 @@ export class Service {
     //     }
     // }
 
-    async createPost(slug, { title, content, featuredImage, status, userId }) {
+    async createPost({ title, content, featuredImage, status, userId }) {
         try {
             if (featuredImage && typeof featuredImage !== "string") {
                 const fileResponse = await this.uploadFile(featuredImage);
@@ -52,7 +52,7 @@ export class Service {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                slug,
+                ID.unique(),
                 {
                     title,
                     content: validContent,  
